@@ -93,7 +93,7 @@ const FEATURES: Feature[] = [
 export function Features() {
   return (
     <section id="features" aria-labelledby="features-title" className="scroll-mt-16">
-      <Frame className="border-t border-border/60 py-16 md:py-24">
+      <Frame marks className="border-t border-border/60 py-16 md:py-24">
         <SectionHeading
           id="features-title"
           eyebrow="Features"

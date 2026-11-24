@@ -31,7 +31,7 @@ const QUESTIONS = [
 export function Faq() {
   return (
     <section id="faq" aria-labelledby="faq-title" className="scroll-mt-16">
-      <Frame className="grid gap-10 border-t border-border/60 py-16 md:grid-cols-[1fr_1.3fr] md:py-24">
+      <Frame marks className="grid gap-10 border-t border-border/60 py-16 md:grid-cols-[1fr_1.3fr] md:py-24">
         <SectionHeading id="faq-title" eyebrow="FAQ" title="Questions server owners ask first" />
         <Accordion type="single" collapsible className="rounded-2xl border-border/70">
           {QUESTIONS.map((item) => (

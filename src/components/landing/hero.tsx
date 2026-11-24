@@ -7,14 +7,14 @@ export function Hero() {
   return (
     <section id="top" aria-labelledby="hero-title" className="scroll-mt-16">
       <Frame className="grid gap-10 pt-16 pb-12 md:grid-cols-[1.3fr_1fr] md:items-end md:pt-24">
-        <div>
+        <div data-ascii-calm>
           <p className="font-mono text-xs text-muted-foreground">Early access for FiveM servers</p>
           <h1 id="hero-title" className="mt-4 text-4xl font-medium tracking-tight text-balance sm:text-5xl lg:text-6xl">
             Run your FiveM server
             <span className="block text-muted-foreground">with a hundred eyes</span>
           </h1>
         </div>
-        <div className="md:pb-1.5">
+        <div data-ascii-calm className="md:pb-1.5">
           <p className="text-base text-pretty text-muted-foreground">
             Argus starts, watches and restarts FXServer from the outside. A live console, health monitoring and
             moderation that keep running while you update the panel.

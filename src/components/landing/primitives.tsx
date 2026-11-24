@@ -3,8 +3,13 @@ import { HugeiconsIcon, type IconSvgElement } from "@hugeicons/react"
 
 import { cn } from "@/lib/utils"
 
-export function Frame({ className, ...props }: ComponentProps<"div">) {
-  return <div className={cn("mx-auto w-full max-w-6xl border-x border-border/60 px-5 sm:px-8", className)} {...props} />
+export function Frame({ className, marks, ...props }: ComponentProps<"div"> & { marks?: boolean }) {
+  return (
+    <div
+      className={cn("mx-auto w-full max-w-6xl border-x border-border/60 px-5 sm:px-8", marks && "xl:frame-marks", className)}
+      {...props}
+    />
+  )
 }
 
 export function Eyebrow({ icon, children, className }: { icon?: IconSvgElement; children: ReactNode; className?: string }) {

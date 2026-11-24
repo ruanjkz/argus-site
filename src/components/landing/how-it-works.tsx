@@ -21,7 +21,7 @@ const STEPS = [
 export function HowItWorks() {
   return (
     <section id="how-it-works" aria-labelledby="how-title" className="scroll-mt-16 border-t border-border/60 bg-panel">
-      <Frame className="grid gap-10 py-16 md:grid-cols-[1fr_1.15fr] md:py-24">
+      <Frame marks className="grid gap-10 py-16 [--mark-surface:var(--panel)] md:grid-cols-[1fr_1.15fr] md:py-24">
         <div className="md:sticky md:top-24 md:self-start">
           <SectionHeading
             id="how-title"

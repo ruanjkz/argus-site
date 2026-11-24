@@ -6,7 +6,7 @@ import { ThemeToggle } from "./theme-toggle"
 export function SiteFooter() {
   return (
     <footer className="border-t border-border/60">
-      <Frame className="flex flex-col gap-8 py-10 md:flex-row md:items-start md:justify-between">
+      <Frame marks className="flex flex-col gap-8 py-10 md:flex-row md:items-start md:justify-between">
         <div className="max-w-xs">
           <ArgusLogo id="footer-logo" />
           <p className="mt-3 text-sm text-muted-foreground">FiveM server management, from outside the server.</p>

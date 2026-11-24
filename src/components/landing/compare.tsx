@@ -27,7 +27,7 @@ function Cell({ supported }: { supported: boolean }) {
 export function Compare() {
   return (
     <section id="compare" aria-labelledby="compare-title" className="scroll-mt-16">
-      <Frame className="border-t border-border/60 py-16 md:py-24">
+      <Frame marks className="border-t border-border/60 py-16 md:py-24">
         <SectionHeading
           id="compare-title"
           eyebrow="Compare"

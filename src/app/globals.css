@@ -499,6 +499,31 @@
   }
 }
 
+@utility frame-marks {
+  position: relative;
+  &::before,
+  &::after {
+    content: "+";
+    position: absolute;
+    top: -0.5px;
+    padding-inline: 2px;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    line-height: 1;
+    color: var(--muted-foreground);
+    background: var(--mark-surface, var(--background));
+    pointer-events: none;
+  }
+  &::before {
+    left: -0.5px;
+    translate: -50% -50%;
+  }
+  &::after {
+    right: -0.5px;
+    translate: 50% -50%;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   [data-slot="accordion-content"] {
     animation: none !important;

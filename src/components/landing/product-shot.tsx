@@ -53,7 +53,7 @@ export function ProductShot() {
   return (
     <section aria-label="Product preview">
       <Frame className="pb-16 md:pb-24">
-        <div className="rounded-3xl bg-panel p-2">
+        <div data-pulse-origin className="rounded-3xl bg-panel p-2">
           <div
             role="img"
             aria-label="Argus panel showing the live console, server health, tick time and online players"

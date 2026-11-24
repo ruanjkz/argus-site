@@ -10,7 +10,7 @@ const SIGNALS = [
 export function Signals() {
   return (
     <section aria-labelledby="signals-title">
-      <Frame className="border-t border-border/60 py-12">
+      <Frame marks className="border-t border-border/60 py-12">
         <p id="signals-title" className="text-center text-sm text-muted-foreground">
           Built on the signals FXServer already emits
         </p>

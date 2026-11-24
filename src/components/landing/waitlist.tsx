@@ -49,7 +49,7 @@ export function Waitlist() {
 
   return (
     <section id="waitlist" aria-labelledby="waitlist-title" className="scroll-mt-16">
-      <Frame className="border-t border-border/60 py-16 md:py-24">
+      <Frame marks className="border-t border-border/60 py-16 md:py-24">
         <div className="rounded-3xl bg-panel p-2">
           <div className="rounded-2xl border border-border/70 bg-background px-6 py-12 sm:px-12 sm:py-16">
             <SectionHeading

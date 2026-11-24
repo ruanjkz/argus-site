@@ -1,3 +1,4 @@
+import { AsciiField } from "@/components/landing/ascii-field"
 import { Compare } from "@/components/landing/compare"
 import { Faq } from "@/components/landing/faq"
 import { Features } from "@/components/landing/features"
@@ -20,8 +21,11 @@ export default function Home() {
       </a>
       <SiteHeader />
       <main>
-        <Hero />
-        <ProductShot />
+        <div className="relative isolate">
+          <AsciiField className="absolute inset-x-0 top-0 -z-10 h-[44rem] w-full" pulseOrigin="[data-pulse-origin]" calm="[data-ascii-calm]" />
+          <Hero />
+          <ProductShot />
+        </div>
         <Signals />
         <Features />
         <HowItWorks />
