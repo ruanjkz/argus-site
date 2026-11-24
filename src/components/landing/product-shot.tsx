@@ -39,7 +39,7 @@ const NAV_ITEMS = [
 ]
 
 const TICK_SAMPLES = [
-  18, 22, 20, 24, 19, 21, 26, 23, 20, 22, 25, 21, 19, 24, 22, 20, 23, 27, 22, 21, 24, 20, 92, 30, 23, 21, 19, 22, 24, 20, 21, 23,
+  18, 22, 20, 24, 19, 21, 26, 23, 20, 22, 25, 21, 19, 24, 22, 20, 23, 27, 22, 21, 24, 20, 61, 30, 23, 21, 19, 22, 24, 20, 21, 23,
 ]
 
 const PLAYERS = [
@@ -123,6 +123,7 @@ function MockConsole() {
 
 function MockInspector() {
   const peak = Math.max(...TICK_SAMPLES)
+  const average = TICK_SAMPLES.reduce((total, value) => total + value, 0) / TICK_SAMPLES.length
   return (
     <div className="hidden flex-col gap-5 border-l border-border/70 p-4 lg:flex">
       <div>
@@ -141,13 +142,13 @@ function MockInspector() {
           <dt className="pl-3.5 text-muted-foreground">Players</dt>
           <dd className="font-mono tabular-nums">48 / 64</dd>
           <dt className="pl-3.5 text-muted-foreground">Tick avg</dt>
-          <dd className="font-mono tabular-nums">4.2 ms</dd>
+          <dd className="font-mono tabular-nums">{average.toFixed(1)} ms</dd>
         </dl>
       </div>
       <div>
         <div className="flex items-baseline justify-between">
           <p className="text-[11px] text-muted-foreground">Tick time</p>
-          <p className="font-mono text-[11px] text-warning tabular-nums">peak 61 ms</p>
+          <p className="font-mono text-[11px] text-warning tabular-nums">peak {peak} ms</p>
         </div>
         <div className="mt-2 flex h-16 items-end gap-[3px]">
           {TICK_SAMPLES.map((value, index) => (
