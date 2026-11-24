@@ -6,9 +6,14 @@ import { t } from "@/lib/i18n"
 
 const ROWS: { feature: string; bundled: boolean; argus: boolean }[] = [
   { feature: "Live console with colors and command history", bundled: true, argus: true },
-  { feature: "Bans, whitelist and action history", bundled: true, argus: true },
+  { feature: "Bans, warns and action history", bundled: true, argus: true },
+  { feature: "Restart on crash or hang, plus daily restarts with warnings", bundled: true, argus: true },
+  { feature: "Staff logins with roles", bundled: true, argus: true },
   { feature: "Update the panel without restarting the game server", bundled: false, argus: true },
-  { feature: "Pin and roll back FXServer artifacts", bundled: false, argus: true },
+  { feature: "Download, switch and roll back FXServer builds from the panel", bundled: false, argus: true },
+  { feature: "Deploy resources from a Git repository", bundled: false, argus: true },
+  { feature: "Script errors grouped, with a likely fix and the commit that caused them", bundled: false, argus: true },
+  { feature: "TypeScript errors pointed at the original .ts line", bundled: false, argus: true },
 ]
 
 function Cell({ supported }: { supported: boolean }) {
