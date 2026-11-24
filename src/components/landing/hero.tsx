@@ -25,7 +25,7 @@ export function Hero() {
               <HugeiconsIcon icon={ArrowRight01Icon} strokeWidth={1.75} className="size-4" />
             </a>
             <a href="#how-it-works" className={BUTTON_SECONDARY}>
-              See how it works
+              How to install
             </a>
           </div>
         </div>

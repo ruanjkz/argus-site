@@ -6,7 +6,7 @@ import { ThemeToggle } from "./theme-toggle"
 
 export const NAV_LINKS = [
   { href: "#features", label: "Features" },
-  { href: "#how-it-works", label: "How it works" },
+  { href: "#how-it-works", label: "Install" },
   { href: "#compare", label: "Compare" },
   { href: "#faq", label: "FAQ" },
 ]
