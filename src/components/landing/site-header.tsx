@@ -14,7 +14,7 @@ export const NAV_LINKS = [
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background">
-      <div className="mx-auto grid h-16 w-full max-w-6xl grid-cols-[1fr_auto] items-center gap-4 border-x border-border/60 px-5 sm:px-8 md:grid-cols-[1fr_auto_1fr]">
+      <div className="mx-auto grid h-16 w-full max-w-6xl grid-cols-[1fr_auto] items-center gap-4 border-x border-border/60 px-5 sm:px-8 md:grid-cols-[auto_1fr_auto] lg:grid-cols-[1fr_auto_1fr]">
         <a
           href="#top"
           className="w-fit rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-ring"
@@ -22,7 +22,7 @@ export function SiteHeader() {
         >
           <ArgusLogo id="header-logo" />
         </a>
-        <nav aria-label="Main" className="hidden md:block">
+        <nav aria-label="Main" className="hidden md:block md:justify-self-center">
           <ul className="flex items-center gap-1">
             {NAV_LINKS.map((link) => (
               <li key={link.href}>
@@ -38,7 +38,7 @@ export function SiteHeader() {
         </nav>
         <div className="flex items-center justify-end gap-2">
           <ThemeToggle />
-          <a href="#waitlist" className={cn(BUTTON_PRIMARY, "h-9 px-3.5")}>
+          <a href="#waitlist" className={cn(BUTTON_PRIMARY, "h-9 px-3.5 whitespace-nowrap")}>
             Join the waitlist
           </a>
         </div>

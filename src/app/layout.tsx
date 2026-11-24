@@ -10,6 +10,8 @@ import "./globals.css"
 const plexSans = IBM_Plex_Sans({ subsets: ["latin"], weight: ["400", "500", "600"], variable: "--font-plex-sans" })
 const plexMono = IBM_Plex_Mono({ subsets: ["latin"], weight: ["400", "500", "600"], variable: "--font-plex-mono" })
 
+const SWITZER_STYLESHEET = "https://api.fontshare.com/v2/css?f[]=switzer@1&display=swap"
+
 export const metadata: Metadata = {
   title: "Argus · FiveM server management",
   description:
@@ -19,6 +21,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" suppressHydrationWarning className={cn("dark antialiased", plexSans.variable, plexMono.variable)}>
+      <head>
+        <link rel="preconnect" href="https://api.fontshare.com" />
+        <link rel="preconnect" href="https://cdn.fontshare.com" crossOrigin="" />
+        <link rel="stylesheet" href={SWITZER_STYLESHEET} />
+      </head>
       <body>
         <Script id="theme" strategy="beforeInteractive" dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
         {children}
