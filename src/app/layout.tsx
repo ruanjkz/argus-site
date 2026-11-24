@@ -16,6 +16,7 @@ export const metadata: Metadata = {
   title: "Argus · FiveM server management",
   description:
     "Argus spawns, watches and restarts FXServer from the outside. Live console, health monitoring, moderation and safe deploys.",
+  alternates: { canonical: "/", languages: { en: "/", es: "/es", "pt-BR": "/pt" } },
 }
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

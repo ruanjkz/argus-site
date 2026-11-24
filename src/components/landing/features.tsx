@@ -15,6 +15,7 @@ import {
 } from "@hugeicons/core-free-icons"
 
 import { cn } from "@/lib/utils"
+import { t } from "@/lib/i18n"
 
 import { FeatureIndex, type FeatureIndexItem } from "./feature-index"
 import { Eyebrow, Frame, SectionHeading } from "./primitives"
@@ -97,24 +98,24 @@ export function Features() {
         <SectionHeading
           id="features-title"
           eyebrow="Features"
-          title="Everything you check when the server acts up"
-          description="Four parts of one panel, built around the way FXServer actually reports what it is doing."
+          title={t("Everything you check when the server acts up")}
+          description={t("Four parts of one panel, built around the way FXServer actually reports what it is doing.")}
         />
         <div className="mt-12 grid gap-12 md:grid-cols-[15rem_1fr] md:gap-10 lg:gap-16">
-          <FeatureIndex items={FEATURES.map(({ id, label, summary, icon }) => ({ id, label, summary, icon }))} />
+          <FeatureIndex label={t("Features")} items={FEATURES.map(({ id, label, summary, icon }) => ({ id, label: t(label), summary: t(summary), icon }))} />
           <div className="flex min-w-0 flex-col gap-20">
             {FEATURES.map((feature) => (
               <article key={feature.id} id={feature.id} aria-labelledby={`${feature.id}-title`} className="scroll-mt-24">
-                <Eyebrow icon={feature.icon}>{feature.label}</Eyebrow>
+                <Eyebrow icon={feature.icon}>{t(feature.label)}</Eyebrow>
                 <h3 id={`${feature.id}-title`} className="mt-3 text-2xl font-medium tracking-tight text-balance sm:text-3xl">
-                  {feature.title}
+                  {t(feature.title)}
                 </h3>
-                <p className="mt-3 max-w-xl text-pretty text-muted-foreground">{feature.description}</p>
+                <p className="mt-3 max-w-xl text-pretty text-muted-foreground">{t(feature.description)}</p>
                 <ul className="mt-5 flex flex-col gap-2 text-sm">
                   {feature.points.map((point) => (
                     <li key={point} className="flex items-start gap-2.5">
                       <HugeiconsIcon icon={Tick02Icon} strokeWidth={1.75} className="mt-0.5 size-4 shrink-0 text-muted-foreground" />
-                      <span className="text-foreground/90">{point}</span>
+                      <span className="text-foreground/90">{t(point)}</span>
                     </li>
                   ))}
                 </ul>
@@ -146,9 +147,9 @@ const COMMANDS = [
 
 function ConsoleMock() {
   return (
-    <MockFrame label="Command autocomplete with permissions: a moderator can run start and status, stop is owner only">
+    <MockFrame label={t("Command autocomplete with permissions: a moderator can run start and status, stop is owner only")}>
       <div className="flex items-center justify-between text-[11px] text-muted-foreground">
-        <span>Signed in as moderator</span>
+        <span>{t("Signed in as moderator")}</span>
         <span className="font-mono">3 matches</span>
       </div>
       <div className="mt-3 flex h-9 items-center gap-2 rounded-xl border border-border/70 px-3 font-mono text-[13px] ring-2 ring-focus/60">
@@ -190,11 +191,11 @@ const LANES = [
 
 function MonitorMock() {
   return (
-    <MockFrame label="Incident card: server thread hung for 4.1 seconds in inventory, with stack trace and heartbeat lanes">
+    <MockFrame label={t("Incident card: server thread hung for 4.1 seconds in inventory, with stack trace and heartbeat lanes")}>
       <div className="flex items-center justify-between gap-3">
         <span className="inline-flex items-center gap-2 text-sm font-medium">
           <HugeiconsIcon icon={Alert02Icon} strokeWidth={1.75} className="size-4 text-destructive" />
-          Server thread hung
+          {t("Server thread hung")}
         </span>
         <span className="font-mono text-[11px] text-muted-foreground tabular-nums">4.1s  23:14:52</span>
       </div>
@@ -234,7 +235,7 @@ const LINKED = [
 
 function ModerationMock() {
   return (
-    <MockFrame label="Player kxng banned for 7 days, with four linked accounts and two screenshots attached">
+    <MockFrame label={t("Player kxng banned for 7 days, with four linked accounts and two screenshots attached")}>
       <div className="flex items-center justify-between gap-3">
         <span className="flex items-center gap-2.5">
           <span className="grid size-8 place-items-center rounded-lg bg-muted font-mono text-[11px] font-medium">KX</span>
@@ -247,7 +248,7 @@ function ModerationMock() {
           Banned · 7 days
         </span>
       </div>
-      <p className="mt-4 text-[11px] text-muted-foreground">Linked accounts</p>
+      <p className="mt-4 text-[11px] text-muted-foreground">{t("Linked accounts")}</p>
       <ul className="mt-2 divide-y divide-border/70 rounded-xl border border-border/70 font-mono text-[12px]">
         {LINKED.map((account) => (
           <li key={account.id} className="flex h-9 items-center justify-between gap-3 px-3">
@@ -272,7 +273,7 @@ const DEPLOY_STEPS = [
 
 function DeployMock() {
   return (
-    <MockFrame label="Deploy of shop at commit a41c9e2: three steps done, waiting for the 04:00 restart">
+    <MockFrame label={t("Deploy of shop at commit a41c9e2: three steps done, waiting for the 04:00 restart")}>
       <div className="flex items-center justify-between gap-3">
         <span className="inline-flex items-center gap-2 text-sm font-medium">
           <HugeiconsIcon icon={GitBranchIcon} strokeWidth={1.75} className="size-4 text-muted-foreground" />
@@ -289,7 +290,7 @@ function DeployMock() {
               strokeWidth={1.75}
               className={cn("size-4 shrink-0", step.done ? "text-success" : "text-muted-foreground")}
             />
-            <span className={cn("flex-1 text-sm", step.done ? "text-muted-foreground" : "text-foreground")}>{step.label}</span>
+            <span className={cn("flex-1 text-sm", step.done ? "text-muted-foreground" : "text-foreground")}>{t(step.label)}</span>
             <span className="font-mono text-[11px] text-muted-foreground tabular-nums">{step.meta}</span>
           </li>
         ))}

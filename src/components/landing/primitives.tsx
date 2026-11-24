@@ -45,6 +45,8 @@ export function SectionHeading({
   )
 }
 
+export const DOWNLOAD_URL = "https://github.com/ruanjkz/argus/releases/download/v0.1.0/Argus.exe"
+
 export const BUTTON_PRIMARY =
   "press inline-flex h-10 items-center justify-center gap-2 rounded-xl bg-primary px-4 text-sm font-medium text-primary-foreground outline-none hover:bg-primary/85 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-45"
 

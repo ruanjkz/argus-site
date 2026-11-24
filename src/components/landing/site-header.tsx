@@ -1,7 +1,9 @@
 import { cn } from "@/lib/utils"
+import { t } from "@/lib/i18n"
 
 import { ArgusLogo } from "./argus-logo"
-import { BUTTON_PRIMARY } from "./primitives"
+import { BUTTON_PRIMARY, DOWNLOAD_URL } from "./primitives"
+import { LanguageSwitch } from "./language-switch"
 import { ThemeToggle } from "./theme-toggle"
 
 export const NAV_LINKS = [
@@ -18,11 +20,11 @@ export function SiteHeader() {
         <a
           href="#top"
           className="w-fit rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-ring"
-          aria-label="Argus home"
+          aria-label={t("Argus home")}
         >
           <ArgusLogo id="header-logo" />
         </a>
-        <nav aria-label="Main" className="hidden md:block md:justify-self-center">
+        <nav aria-label={t("Main")} className="hidden md:block md:justify-self-center">
           <ul className="flex items-center gap-1">
             {NAV_LINKS.map((link) => (
               <li key={link.href}>
@@ -30,16 +32,17 @@ export function SiteHeader() {
                   href={link.href}
                   className="press flex h-8 items-center rounded-lg px-3 text-sm text-muted-foreground outline-none hover:text-foreground active:text-foreground focus-visible:ring-2 focus-visible:ring-ring"
                 >
-                  {link.label}
+                  {t(link.label)}
                 </a>
               </li>
             ))}
           </ul>
         </nav>
         <div className="flex items-center justify-end gap-2">
+          <LanguageSwitch className="hidden sm:flex" />
           <ThemeToggle />
-          <a href="#waitlist" className={cn(BUTTON_PRIMARY, "h-9 px-3.5 whitespace-nowrap")}>
-            Join the waitlist
+          <a href={DOWNLOAD_URL} className={cn(BUTTON_PRIMARY, "h-9 px-3.5 whitespace-nowrap")}>
+            {t("Download")}
           </a>
         </div>
       </div>

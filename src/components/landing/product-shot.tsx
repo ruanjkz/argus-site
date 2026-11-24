@@ -10,6 +10,7 @@ import {
 } from "@hugeicons/core-free-icons"
 
 import { cn } from "@/lib/utils"
+import { t } from "@/lib/i18n"
 
 import { ArgusMark } from "./argus-logo"
 import { LiveConsole, type ConsoleLine } from "./live-console"
@@ -51,12 +52,12 @@ const PLAYERS = [
 
 export function ProductShot() {
   return (
-    <section aria-label="Product preview">
+    <section aria-label={t("Product preview")}>
       <Frame className="pb-16 md:pb-24">
         <div data-pulse-origin className="rounded-3xl bg-panel p-2">
           <div
             role="img"
-            aria-label="Argus panel showing the live console, server health, tick time and online players"
+            aria-label={t("Argus panel showing the live console, server health, tick time and online players")}
             className="overflow-hidden rounded-2xl border border-border/70 bg-background"
           >
             <div aria-hidden className="grid min-h-[22rem] md:min-h-[30rem] md:grid-cols-[12.5rem_1fr] lg:grid-cols-[12.5rem_1fr_16rem]">
@@ -93,7 +94,7 @@ function MockSidebar() {
             )}
           >
             <HugeiconsIcon icon={item.icon} strokeWidth={1.75} className="size-4 shrink-0" />
-            {item.label}
+            {t(item.label)}
           </span>
         ))}
       </div>
@@ -106,14 +107,14 @@ function MockConsole() {
     <div className="flex min-w-0 flex-col">
       <div className="flex items-start justify-between gap-4 border-b border-border/70 px-4 py-3">
         <div className="min-w-0">
-          <p className="truncate text-sm font-medium">Live console</p>
+          <p className="truncate text-sm font-medium">{t("Live console")}</p>
           <p className="mt-0.5 overflow-hidden font-mono text-[11px] text-ellipsis whitespace-pre text-muted-foreground">
             {"arena-01  pid 18244  up 3h 12m"}
           </p>
         </div>
         <span className="inline-flex h-6 shrink-0 items-center gap-1.5 rounded-lg bg-success/12 px-2 text-[11px] font-medium text-success">
           <span className="size-1.5 rounded-full bg-success" />
-          Online
+          {t("Online")}
         </span>
       </div>
       <LiveConsole initialLines={CONSOLE_LINES} />
@@ -127,27 +128,27 @@ function MockInspector() {
   return (
     <div className="hidden flex-col gap-5 border-l border-border/70 p-4 lg:flex">
       <div>
-        <p className="text-[11px] text-muted-foreground">Health</p>
+        <p className="text-[11px] text-muted-foreground">{t("Health")}</p>
         <dl className="mt-2 grid grid-cols-[1fr_auto] gap-y-2 text-xs">
           <dt className="flex items-center gap-2 text-muted-foreground">
             <span className="size-1.5 rounded-full bg-success" />
-            Heartbeat
+            {t("Heartbeat")}
           </dt>
           <dd className="font-mono tabular-nums">2s ago</dd>
           <dt className="flex items-center gap-2 text-muted-foreground">
             <span className="size-1.5 rounded-full bg-success" />
-            Health check
+            {t("Health check")}
           </dt>
           <dd className="font-mono tabular-nums">200 · 38 ms</dd>
-          <dt className="pl-3.5 text-muted-foreground">Players</dt>
+          <dt className="pl-3.5 text-muted-foreground">{t("Players")}</dt>
           <dd className="font-mono tabular-nums">48 / 64</dd>
-          <dt className="pl-3.5 text-muted-foreground">Tick avg</dt>
+          <dt className="pl-3.5 text-muted-foreground">{t("Tick avg")}</dt>
           <dd className="font-mono tabular-nums">{average.toFixed(1)} ms</dd>
         </dl>
       </div>
       <div>
         <div className="flex items-baseline justify-between">
-          <p className="text-[11px] text-muted-foreground">Tick time</p>
+          <p className="text-[11px] text-muted-foreground">{t("Tick time")}</p>
           <p className="font-mono text-[11px] text-warning tabular-nums">peak {peak} ms</p>
         </div>
         <div className="mt-2 flex h-16 items-end gap-[3px]">
@@ -161,7 +162,7 @@ function MockInspector() {
         </div>
       </div>
       <div>
-        <p className="text-[11px] text-muted-foreground">Online</p>
+        <p className="text-[11px] text-muted-foreground">{t("Online")}</p>
         <ul className="mt-2 flex flex-col gap-1.5 text-xs">
           {PLAYERS.map((player) => (
             <li key={player.name} className="flex items-center justify-between">

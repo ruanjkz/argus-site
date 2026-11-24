@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils"
 
 export type FeatureIndexItem = { id: string; label: string; summary: string; icon: IconSvgElement }
 
-export function FeatureIndex({ items }: { items: FeatureIndexItem[] }) {
+export function FeatureIndex({ items, label }: { items: FeatureIndexItem[]; label: string }) {
   const [activeId, setActiveId] = useState(items[0]?.id)
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export function FeatureIndex({ items }: { items: FeatureIndexItem[] }) {
   }, [items])
 
   return (
-    <nav aria-label="Features" className="hidden md:block">
+    <nav aria-label={label} className="hidden md:block">
       <ul className="sticky top-24 flex flex-col gap-1">
         {items.map((item) => {
           const active = item.id === activeId
