@@ -2,31 +2,29 @@
 
 import { useEffect, useRef, useState } from "react"
 import { HugeiconsIcon } from "@hugeicons/react"
-import { Copy01Icon, Tick02Icon } from "@hugeicons/core-free-icons"
+import { Copy01Icon, Download04Icon, Tick02Icon } from "@hugeicons/core-free-icons"
 
-import { Frame, SectionHeading } from "./primitives"
+import { BUTTON_PRIMARY, Frame, SectionHeading } from "./primitives"
+
+const DOWNLOAD_URL = "https://github.com/ruanjkz/argus/releases/download/v0.1.0/Argus.exe"
 
 const STEPS = [
   {
-    title: "Download Argus",
-    description: "Needs Node.js 22 or newer and Git on the machine that runs FXServer. Windows and Linux.",
-    commands: ["git clone https://github.com/ruanjkz/argus.git", "cd argus", "npm run setup", "npm link"],
-    note: "npm link puts the argus command on your PATH.",
+    title: "Download Argus.exe",
+    description: "One file. Put it on the machine that runs FXServer, anywhere you like. Nothing else to install.",
   },
   {
-    title: "Link your server",
+    title: "Open it and pick your server",
     description:
-      "Two questions: the folder with server.cfg, and where FXServer is. Argus copies its resource, adds ensure argus to server.cfg and keeps a backup. It shows the plan and waits for a yes.",
-    commands: ["argus init"],
-    note: "Your server is not started or stopped during setup.",
+      "Your browser opens the setup. Argus finds the servers on the machine, you pick one, create your owner account and click Install. It shows what it will change before it does.",
   },
   {
-    title: "Start everything",
-    description: "Starts the agent, the panel and FXServer. Ctrl+C stops the server gracefully, then Argus.",
-    commands: ["argus start"],
-    note: "Panel on http://localhost:3200. Try it first with argus start --simulate.",
+    title: "Invite your staff",
+    description: "Create logins in Settings. Each member picks their own password on the first sign in. Turn on remote access to let them in from their computers.",
   },
 ]
+
+const MANUAL = ["git clone https://github.com/ruanjkz/argus.git", "cd argus", "npm run setup", "npm link", "argus"]
 
 export function HowItWorks() {
   return (
@@ -36,27 +34,35 @@ export function HowItWorks() {
           <SectionHeading
             id="how-title"
             eyebrow="Install"
-            title="Running in three commands"
+            title="Download, open, pick your server"
             description="Argus runs next to your server, on the same machine. It starts FXServer as its own child process, so it sees every line, every exit code and every hung thread."
           />
-          <p className="mt-4 text-sm text-muted-foreground">
-            Something missing? <span className="font-mono text-[13px] text-foreground/90">argus doctor</span> checks Node, Git, the
-            resource, server.cfg and the ports, and says what to fix.
-          </p>
+          <a href={DOWNLOAD_URL} className={`${BUTTON_PRIMARY} mt-6`}>
+            <HugeiconsIcon icon={Download04Icon} strokeWidth={1.75} className="size-4" />
+            Download for Windows
+          </a>
+          <p className="mt-2 text-xs text-muted-foreground">Windows may warn about an unknown publisher: the file is not signed yet.</p>
         </div>
-        <ol className="flex min-w-0 flex-col gap-2">
-          {STEPS.map((step, index) => (
-            <li key={step.title} className="flex gap-4 rounded-2xl border border-border/70 bg-background p-5">
-              <span className="w-4 shrink-0 font-mono text-sm leading-6 text-muted-foreground tabular-nums">{index + 1}</span>
-              <div className="min-w-0 flex-1">
-                <h3 className="text-base font-medium">{step.title}</h3>
-                <p className="mt-1 text-sm text-pretty text-muted-foreground">{step.description}</p>
-                <CommandBlock commands={step.commands} />
-                <p className="mt-2 text-xs text-muted-foreground">{step.note}</p>
-              </div>
-            </li>
-          ))}
-        </ol>
+        <div className="flex min-w-0 flex-col gap-2">
+          <ol className="flex flex-col gap-2">
+            {STEPS.map((step, index) => (
+              <li key={step.title} className="flex gap-4 rounded-2xl border border-border/70 bg-background p-5">
+                <span className="w-4 shrink-0 font-mono text-sm leading-6 text-muted-foreground tabular-nums">{index + 1}</span>
+                <div className="min-w-0 flex-1">
+                  <h3 className="text-base font-medium">{step.title}</h3>
+                  <p className="mt-1 text-sm text-pretty text-muted-foreground">{step.description}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+          <div className="rounded-2xl border border-border/70 bg-background p-5">
+            <h3 className="text-sm font-medium">Linux, or from source</h3>
+            <p className="mt-1 text-sm text-pretty text-muted-foreground">
+              Needs Node.js 22 and Git. The same setup opens in the browser, or run argus init for a terminal version.
+            </p>
+            <CommandBlock commands={MANUAL} />
+          </div>
+        </div>
       </Frame>
     </section>
   )
@@ -94,7 +100,7 @@ function CommandBlock({ commands }: { commands: string[] }) {
       <button
         type="button"
         onClick={copy}
-        aria-label={copied ? "Copied" : commands.length === 1 ? `Copy ${commands[0]}` : "Copy the commands"}
+        aria-label={copied ? "Copied" : "Copy the commands"}
         className="press grid size-7 shrink-0 place-items-center rounded-md text-muted-foreground outline-none hover:bg-background hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring"
       >
         <HugeiconsIcon icon={copied ? Tick02Icon : Copy01Icon} strokeWidth={1.75} className="size-3.5" />
