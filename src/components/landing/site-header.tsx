@@ -2,6 +2,7 @@ import { cn } from "@/lib/utils"
 
 import { ArgusLogo } from "./argus-logo"
 import { BUTTON_PRIMARY } from "./primitives"
+import { ThemeToggle } from "./theme-toggle"
 
 export const NAV_LINKS = [
   { href: "#features", label: "Features" },
@@ -35,7 +36,8 @@ export function SiteHeader() {
             ))}
           </ul>
         </nav>
-        <div className="flex items-center justify-end">
+        <div className="flex items-center justify-end gap-2">
+          <ThemeToggle />
           <a href="#waitlist" className={cn(BUTTON_PRIMARY, "h-9 px-3.5")}>
             Join the waitlist
           </a>

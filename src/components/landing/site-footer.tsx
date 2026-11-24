@@ -1,7 +1,6 @@
 import { ArgusLogo } from "./argus-logo"
 import { Frame } from "./primitives"
 import { NAV_LINKS } from "./site-header"
-import { ThemeToggle } from "./theme-toggle"
 
 export function SiteFooter() {
   return (
@@ -25,10 +24,7 @@ export function SiteFooter() {
             ))}
           </ul>
         </nav>
-        <div className="flex items-center gap-4 md:flex-col md:items-end">
-          <ThemeToggle />
-          <p className="font-mono text-[11px] text-muted-foreground">© 2026 Argus</p>
-        </div>
+        <p className="font-mono text-[11px] text-muted-foreground">© 2026 Argus</p>
       </Frame>
     </footer>
   )
