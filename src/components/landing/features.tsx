@@ -106,7 +106,7 @@ export function Features() {
             {FEATURES.map((feature) => (
               <article key={feature.id} id={feature.id} aria-labelledby={`${feature.id}-title`} className="scroll-mt-24">
                 <Eyebrow icon={feature.icon}>{feature.label}</Eyebrow>
-                <h3 id={`${feature.id}-title`} className="mt-4 text-2xl font-medium tracking-tight text-balance sm:text-3xl">
+                <h3 id={`${feature.id}-title`} className="mt-3 text-2xl font-medium tracking-tight text-balance sm:text-3xl">
                   {feature.title}
                 </h3>
                 <p className="mt-3 max-w-xl text-pretty text-muted-foreground">{feature.description}</p>
@@ -130,7 +130,7 @@ export function Features() {
 
 function MockFrame({ children, label }: { children: ReactNode; label: string }) {
   return (
-    <div className="rounded-[1.375rem] bg-panel p-2">
+    <div className="rounded-3xl bg-panel p-2">
       <div role="img" aria-label={label} className="rounded-2xl border border-border/70 bg-background p-4">
         <div aria-hidden>{children}</div>
       </div>

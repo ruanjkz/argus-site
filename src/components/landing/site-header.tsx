@@ -2,7 +2,6 @@ import { cn } from "@/lib/utils"
 
 import { ArgusLogo } from "./argus-logo"
 import { BUTTON_PRIMARY } from "./primitives"
-import { ThemeToggle } from "./theme-toggle"
 
 export const NAV_LINKS = [
   { href: "#features", label: "Features" },
@@ -23,12 +22,12 @@ export function SiteHeader() {
           <ArgusLogo id="header-logo" />
         </a>
         <nav aria-label="Main" className="hidden md:block">
-          <ul className="flex items-center gap-0.5 rounded-full border border-border/70 p-1">
+          <ul className="flex items-center gap-1">
             {NAV_LINKS.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="press flex h-8 items-center rounded-full px-3 text-sm text-muted-foreground outline-none hover:bg-muted hover:text-foreground active:bg-muted active:text-foreground focus-visible:ring-2 focus-visible:ring-ring"
+                  className="press flex h-8 items-center rounded-lg px-3 text-sm text-muted-foreground outline-none hover:text-foreground active:text-foreground focus-visible:ring-2 focus-visible:ring-ring"
                 >
                   {link.label}
                 </a>
@@ -36,8 +35,7 @@ export function SiteHeader() {
             ))}
           </ul>
         </nav>
-        <div className="flex items-center justify-end gap-2">
-          <ThemeToggle className="hidden sm:flex" />
+        <div className="flex items-center justify-end">
           <a href="#waitlist" className={cn(BUTTON_PRIMARY, "h-9 px-3.5")}>
             Join the waitlist
           </a>

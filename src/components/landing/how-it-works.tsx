@@ -33,9 +33,7 @@ export function HowItWorks() {
         <ol className="flex flex-col gap-2">
           {STEPS.map((step, index) => (
             <li key={step.title} className="flex gap-4 rounded-2xl border border-border/70 bg-background p-5">
-              <span className="grid size-7 shrink-0 place-items-center rounded-full border border-border font-mono text-xs text-muted-foreground">
-                {index + 1}
-              </span>
+              <span className="w-4 shrink-0 font-mono text-sm leading-6 text-muted-foreground tabular-nums">{index + 1}</span>
               <div className="min-w-0">
                 <h3 className="text-base font-medium">{step.title}</h3>
                 <p className="mt-1 text-sm text-pretty text-muted-foreground">{step.description}</p>

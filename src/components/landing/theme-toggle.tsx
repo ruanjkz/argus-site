@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils"
 export function ThemeToggle({ className }: { className?: string }) {
   const { theme, setTheme } = useTheme()
   return (
-    <div className={cn("flex items-center gap-0.5 rounded-full bg-muted p-0.5", className)} role="radiogroup" aria-label="Theme">
+    <div className={cn("flex items-center gap-0.5 rounded-lg bg-muted p-0.5", className)} role="radiogroup" aria-label="Theme">
       {(["light", "dark"] as const).map((value) => (
         <button
           key={value}
@@ -22,7 +22,7 @@ export function ThemeToggle({ className }: { className?: string }) {
           onClick={() => setTheme(value)}
           onKeyDown={handleRadioKeyDown}
           className={cn(
-            "press grid size-7 place-items-center rounded-full outline-none focus-visible:ring-2 focus-visible:ring-ring",
+            "press grid size-7 place-items-center rounded-md outline-none focus-visible:ring-2 focus-visible:ring-ring",
             theme === value ? "bg-background text-foreground shadow-xs" : "text-muted-foreground hover:text-foreground",
           )}
         >

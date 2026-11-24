@@ -3,14 +3,11 @@ import { MinusSignIcon, Tick02Icon } from "@hugeicons/core-free-icons"
 
 import { Frame, SectionHeading } from "./primitives"
 
-const ROWS: { feature: string; inside: boolean; argus: boolean }[] = [
-  { feature: "Live console with colors and command history", inside: true, argus: true },
-  { feature: "Bans, whitelist and action history", inside: true, argus: true },
-  { feature: "Update the panel without restarting the game", inside: false, argus: true },
-  { feature: "Pin and roll back FXServer artifacts", inside: false, argus: true },
-  { feature: "Staging instance on the same host", inside: false, argus: true },
-  { feature: "Script errors grouped by resource and line", inside: false, argus: true },
-  { feature: "Linked accounts across identifiers and tokens", inside: false, argus: true },
+const ROWS: { feature: string; bundled: boolean; argus: boolean }[] = [
+  { feature: "Live console with colors and command history", bundled: true, argus: true },
+  { feature: "Bans, whitelist and action history", bundled: true, argus: true },
+  { feature: "Update the panel without restarting the game server", bundled: false, argus: true },
+  { feature: "Pin and roll back FXServer artifacts", bundled: false, argus: true },
 ]
 
 function Cell({ supported }: { supported: boolean }) {
@@ -34,8 +31,8 @@ export function Compare() {
         <SectionHeading
           id="compare-title"
           eyebrow="Compare"
-          title="Why the agent lives outside the server"
-          description="A panel that runs inside FXServer goes down with it, and it cannot swap the binary it runs on."
+          title="Why the agent ships apart from FXServer"
+          description="A panel bundled with the FXServer artifact runs on that same binary. It cannot swap it, and updating the panel means restarting the server."
         />
         <div className="relative mt-10 overflow-x-auto rounded-2xl border border-border/70">
           <table className="w-full min-w-[34rem] text-sm">
@@ -44,8 +41,8 @@ export function Compare() {
                 <th scope="col" className="px-4 py-3 font-normal">
                   Capability
                 </th>
-                <th scope="col" className="w-40 px-4 py-3 font-normal">
-                  Panel inside FXServer
+                <th scope="col" className="w-44 px-4 py-3 font-normal">
+                  Bundled with FXServer
                 </th>
                 <th scope="col" className="w-28 px-4 py-3 font-medium text-foreground">
                   Argus
@@ -59,7 +56,7 @@ export function Compare() {
                     {row.feature}
                   </th>
                   <td className="px-4 py-3">
-                    <Cell supported={row.inside} />
+                    <Cell supported={row.bundled} />
                   </td>
                   <td className="px-4 py-3">
                     <Cell supported={row.argus} />

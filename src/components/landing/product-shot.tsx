@@ -53,7 +53,7 @@ export function ProductShot() {
   return (
     <section aria-label="Product preview">
       <Frame className="pb-16 md:pb-24">
-        <div className="rounded-[1.375rem] bg-panel p-2">
+        <div className="rounded-3xl bg-panel p-2">
           <div
             role="img"
             aria-label="Argus panel showing the live console, server health, tick time and online players"
@@ -106,7 +106,7 @@ function MockConsole() {
     <div className="flex min-w-0 flex-col">
       <div className="flex items-start justify-between gap-4 border-b border-border/70 px-4 py-3">
         <div className="min-w-0">
-          <p className="truncate text-sm font-semibold">Live console</p>
+          <p className="truncate text-sm font-medium">Live console</p>
           <p className="mt-0.5 overflow-hidden font-mono text-[11px] text-ellipsis whitespace-pre text-muted-foreground">
             {"arena-01  pid 18244  up 3h 12m"}
           </p>
